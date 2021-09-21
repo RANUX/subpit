@@ -20,6 +20,9 @@ cd djangoapp
 ./manage.py runserver
 ```
 
+## Run example project
+First run djangoapp `./manage.py runserver` and then go to example and run `./manage.py runserver 8080`
+Open page `http://localhost:8080` and try to send data
 
 ### Gunicorn tips
 Gunicorn setting file
