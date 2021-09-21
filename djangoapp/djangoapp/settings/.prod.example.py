@@ -8,7 +8,7 @@ SECRET_KEY = ''
 
 DEBUG = False
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = [
+CORS_ALLOWED_ORIGINS = [
     'https://...'
 ]
 
