@@ -1,7 +1,9 @@
+## About SubPit 
+Simple Django REST API app to collect information about subscribers like emails or phones on your server.
 
 
 ## Dev installation
-1.Run `make` in project dir
+1.Run `make venv` in project dir
 
 2.Activate virtual environment and apply migrations:
 ```

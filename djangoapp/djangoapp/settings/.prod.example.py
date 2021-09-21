@@ -7,4 +7,9 @@
 SECRET_KEY = ''
 
 DEBUG = False
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yourhosehere']
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = [
+    'https://...'
+]
+
+ALLOWED_HOSTS = ['yourhost']
