@@ -22,7 +22,7 @@ class Subscriber(models.Model):
     name = models.CharField(_('name'), max_length=150, blank=True)
     lastname = models.CharField(_('last name'), max_length=150, blank=True)
     email = models.EmailField(blank=True, unique=True)
-    phone = PhoneNumberField(_('phone'), blank=True, unique=True)
+    phone = PhoneNumberField(_('phone'), blank=True)
     valid = models.BooleanField(_('valid'), default=True)
     host = models.CharField(            # host from where sub data came from
         _('host name'),
