@@ -6,7 +6,8 @@ const error = document.querySelector('.error')
 
 btnSend.addEventListener('click', async () => {
   let userData = {
-    email: emailInput.value
+    email: emailInput.value,
+    host: window.location.host
   }
   try {
     const resp = await fetch(`${URL}/subs/create/`, {
