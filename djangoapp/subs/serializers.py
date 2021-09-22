@@ -5,4 +5,4 @@ class SubscriberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subscriber
-        fields = ('name', 'lastname', 'email', 'phone', 'domain', 'other')
+        fields = ('name', 'lastname', 'email', 'phone', 'host', 'other')

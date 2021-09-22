@@ -3,4 +3,4 @@ from .models import Subscriber
 
 @admin.register(Subscriber)
 class SubscriberModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'phone', 'domain')
+    list_display = ('id', 'email', 'phone', 'host')

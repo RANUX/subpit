@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 from django.core.exceptions import ValidationError
 import string
 
-def _simple_domain_name_validator(value):
+def _simple_host_name_validator(value):
     """
     Validate that the given value contains no whitespaces to prevent common
     typos.
@@ -24,10 +24,10 @@ class Subscriber(models.Model):
     email = models.EmailField(blank=True, unique=True)
     phone = PhoneNumberField(_('phone'), blank=True, unique=True)
     valid = models.BooleanField(_('valid'), default=True)
-    domain = models.CharField(            # domain from where sub data came from
-        _('domain name'),
+    host = models.CharField(            # host from where sub data came from
+        _('host name'),
         max_length=100,
-        validators=[_simple_domain_name_validator],
+        validators=[_simple_host_name_validator],
     )
     other = models.CharField(_('Other info'), max_length=255, blank=True)
 
