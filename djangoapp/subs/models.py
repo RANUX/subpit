@@ -2,14 +2,33 @@ from django.db import models
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext as _
+from django.core.exceptions import ValidationError
+import string
+
+def _simple_domain_name_validator(value):
+    """
+    Validate that the given value contains no whitespaces to prevent common
+    typos.
+    """
+    checks = ((s in value) for s in string.whitespace)
+    if any(checks):
+        raise ValidationError(
+            _("The domain name cannot contain any spaces or tabs."),
+            code='invalid',
+        )
 
 class Subscriber(models.Model):
 
-    name = models.CharField(_('Name'), max_length=150, blank=True)
-    lastname = models.CharField(_('Last name'), max_length=150, blank=True)
+    name = models.CharField(_('name'), max_length=150, blank=True)
+    lastname = models.CharField(_('last name'), max_length=150, blank=True)
     email = models.EmailField(blank=True, unique=True)
-    phone = PhoneNumberField(_('Phone'), blank=True, unique=True)
-    valid = models.BooleanField(_('Valid'), default=True)
+    phone = PhoneNumberField(_('phone'), blank=True, unique=True)
+    valid = models.BooleanField(_('valid'), default=True)
+    domain = models.CharField(            # domain from where sub data came from
+        _('domain name'),
+        max_length=100,
+        validators=[_simple_domain_name_validator],
+    )
     other = models.CharField(_('Other info'), max_length=255, blank=True)
 
     class Meta:
